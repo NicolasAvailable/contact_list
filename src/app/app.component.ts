@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StorageService } from './shared/services/storage.service';
+import { ListContactService } from './shared/services/list-contact.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'contact-list';
+
+  constructor(private storage: StorageService,
+              private listContacts: ListContactService){
+                this.listContacts.setContacts = storage.getContacts
+              }
 }

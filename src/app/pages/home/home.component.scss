@@ -1,0 +1,14 @@
+.home{
+    display: grid;
+    grid-template-rows: 10% 8% 9% 16% 1fr;
+}
+
+.margin-left-custome{
+    display: flex;
+    margin-left: -12px;
+}
+
+.border-custome{
+    border-top: 1px solid #1C1C1E;
+    border-bottom: 1px solid #1C1C1E;
+}

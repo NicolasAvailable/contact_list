@@ -1,0 +1,36 @@
+
+<div *ngIf="newForm" class="fixed new-modal h-screen w-full top-0 left-0 rounded-t-lg">
+    <div (click)="cancelModal()" class="bg-transparent"></div>
+    <form class="bg-input-bg modal rounded-t-3xl" [formGroup]="newForm">
+        <div class="grid grid-cols-4 pt-2">
+            <div class="col-span-1 flex justify-center items-center">
+                <button (click)="cancelModal()" class="text-xl font-semibold text-blue-custome">Cancel</button>
+            </div>
+            <div class="col-span-2 flex justify-center items-center">
+                <h2 class="text-xl font-bold text-white">{{title}}</h2>
+            </div>
+            <div class="col-span-1 flex justify-center items-center">
+                <button [ngClass]="newForm.valid ? 'text-blue-custome' : 'button-disabled'"  
+                class="text-xl font-semibold" 
+                (click)="submitContact()"
+                [disabled]="!newForm.valid">Done</button>
+            </div>
+        </div>
+        <div class="flex justify-center items-center">
+            <img class="h-28 w-28 rounded-full" src="https://static.vecteezy.com/system/resources/previews/005/228/601/non_2x/avatar-man-face-silhouette-user-sign-person-profile-picture-male-contour-outline-icon-black-color-illustration-flat-style-image-vector.jpg" alt="">
+        </div>
+        <div class="mt-4 flex flex-col">
+                <input class="h-11 pl-5 bg-input-new-bg text-lg text-white focus:outline-none border-custome" 
+                type="text" placeholder="First name" formControlName="name" maxlength="12">
+                <input class="h-11 pl-5 bg-input-new-bg text-lg text-white focus:outline-none border-custome" 
+                type="text" placeholder="Last name" formControlName="lastName" maxlength="12">
+                <input class="h-11 pl-5 bg-input-new-bg text-lg text-white focus:outline-none" 
+                type="text" placeholder="Company" formControlName="company" maxlength="12">
+        </div>
+        <div></div>
+        <div class="w-full">
+            <input class="h-11 pl-5 bg-input-new-bg text-lg text-white focus:outline-none w-full" 
+            type="text" placeholder="Add phone" formControlName="number" maxlength="12">
+        </div>
+    </form>
+</div>

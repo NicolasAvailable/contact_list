@@ -1,0 +1,45 @@
+<div class="modal min-h-screen p-4">
+    <div class="grid grid-cols-5 w-full">
+        <div (click)="back()" class="col-span-4 flex justify-start items-center text-2xl text-blue-custome">
+            <i class='bx bx-chevron-left text-5xl cursor-pointer'></i> 
+            <a class="margin-left-custome font-semibold cursor-pointer">Back</a>
+        </div>
+        <div class="col-span-1 flex justify-end items-center">
+            <button (click)="showModal()" class="mr-2 text-blue-custome text-2xl font-semibold">Edit</button>
+        </div>
+    </div>
+    <div>
+        <div class="flex flex-col justify-center items-center pl-4 mt-3">
+            <img class="h-28 w-28 rounded-full" src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg" alt="">
+            <h2 class="text-2xl text-white pt-3 font-semibold">{{contact.name}}</h2>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 text-blue-custome ">
+        <div class="h-full bg-input-new-bg flex flex-col justify-center items-center rounded mx-2">
+            <i class='bx bxs-message-rounded text-3xl'></i>
+            <span>Message</span>
+        </div>
+        <div class="h-full bg-input-new-bg flex flex-col justify-center items-center rounded mx-2">
+            <i class='bx bxs-phone text-3xl'></i>
+            <span>Call</span>
+        </div>
+        <div class="h-full bg-input-new-bg flex flex-col justify-center items-center rounded mx-2">
+            <i class='bx bxs-camera text-3xl'></i>
+            <span>Video</span>
+        </div>
+        <div class="h-full bg-input-new-bg flex flex-col justify-center items-center rounded mx-2">
+            <i class='bx bxs-envelope text-3xl'></i>
+            <span>Email</span>
+        </div>
+    </div>
+    <div class="h-full bg-input-new-bg flex flex-col justify-center items-start rounded mx-2 my-5 text-white">
+        <span class="text-lg font-semibold pl-3">mobile</span>
+        <span class="text-blue-custome pl-3">{{contact.number}}</span>
+    </div>
+    <div></div>
+    <div (click)="delete(contact.id)" class="h-full bg-input-new-bg flex flex-col justify-center items-start rounded mx-2 mt-5">
+        <button class="text-red-600 font-semibold text-lg pl-3">Delete contact</button>
+    </div>
+</div>
+
+<app-new-modal [contactRecived]="contact" *ngIf="listContactService.showModal"></app-new-modal>

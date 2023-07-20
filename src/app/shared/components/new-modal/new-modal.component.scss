@@ -1,0 +1,30 @@
+
+.new-modal {
+    display: grid;
+    grid-template-rows: 11% 1fr;
+    animation: aparecer 0.4s ease-in-out forwards;
+}
+
+.modal{
+    display: grid;
+    grid-template-rows: 11% 20% 1fr 1% 1fr;
+}
+
+.border-custome{
+    border-bottom: 2px solid #2F2F31;
+}
+
+.button-disabled{
+    color: #0979e249;
+}
+
+@keyframes aparecer {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

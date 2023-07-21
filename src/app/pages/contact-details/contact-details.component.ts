@@ -27,6 +27,7 @@ export class ContactDetailsComponent implements OnInit {
     this.getContacts()
   }
 
+  // this functions get all contacts
   getContacts(){
     this.listContactService.getContacts.subscribe(contacts => {
       this.contacts = contacts
@@ -37,6 +38,7 @@ export class ContactDetailsComponent implements OnInit {
     this.listContactService.showModal = true;
   }
 
+  // this function calls the deleteContact function in ListContactService
   delete(id: number){
     this.listContactService.deleteContact(id);
     console.log(this.contacts);

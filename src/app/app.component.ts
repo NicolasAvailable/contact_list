@@ -11,6 +11,7 @@ export class AppComponent {
 
   constructor(private storage: StorageService,
               private listContacts: ListContactService){
+                // we update the localStorage here
                 this.listContacts.setContacts = storage.getContacts
               }
 }

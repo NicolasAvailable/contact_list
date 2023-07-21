@@ -35,6 +35,7 @@ export class NewModalComponent implements OnInit {
     this.iniForm(this.contactRecived)
   }
 
+  // Init de reactive form
   iniForm(contact: Contact){
     this.newForm = new FormGroup({
       name: new FormControl(contact?.name || '', [Validators.required, Validators.minLength(1)]),
@@ -46,6 +47,7 @@ export class NewModalComponent implements OnInit {
     })
   }
 
+  // this function create or update a contact depends on a condition
   submitContact(){
     if(this.contactRecived){
       console.log(this.contactRecived);

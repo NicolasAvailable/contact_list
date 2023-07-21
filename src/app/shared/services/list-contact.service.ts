@@ -12,26 +12,31 @@ export class ListContactService {
 
   constructor() { }
 
+  // this gets the contacts in the BehaviorSubect
   get getContacts(): Observable<Contact[]>{
     return this.contacts;
   }
 
+  // this sets contacts in the BehaviorSubject
   set setContacts(contacts: Contact[]){
     this.contacts.next(contacts)
   }
 
+  // this function finds a contact inside the array
   getOneContact(id: number){
     const currentContacts = this.contacts.value;
     const contactFound = currentContacts.find(contact => contact.id === Number(id))
     return contactFound ? contactFound : {} as Contact
   }
 
+  // this function creates a new contact
   createContact(contact: Contact){
     const currentContacts = this.contacts.value;
     currentContacts.push(contact)
     return this.contacts.next(currentContacts)
   }
 
+  // this function updates a conatct
   editContact(contact: Contact ,id: number){
     const currentContacts = this.contacts.value;
     const index = currentContacts.findIndex(contact => contact.id === id)
@@ -44,6 +49,7 @@ export class ListContactService {
     return
   }
 
+  // this function deletes a contact
   deleteContact(id: number){
     const currentContacts = this.contacts.value;
     const newContacts = currentContacts.filter(contact => contact.id !== id)
